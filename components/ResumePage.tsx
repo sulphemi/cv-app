@@ -12,6 +12,7 @@ function ResumePage({ formData }) {
               <li key={index}>
                 <p>{item["school"]}</p>
                 <p>{item["title"]}</p>
+                <p>{item["startYear"]} - {item["endYear"]}</p>
               </li>
             )
           })
@@ -26,6 +27,7 @@ function ResumePage({ formData }) {
               <p>{item["company"]}</p>
               <p>{item["position"]}</p>
               <p>{item["responsibilities"]}</p>
+              <p>{item["startYear"]} - {item["endYear"]}</p>
             </li>
           )
         })}
