@@ -51,6 +51,13 @@ function App() {
     console.log(formData)
   }
 
+  const popListItem = (list) => {
+    setFormData({
+      ...formData,
+      [list]: formData[list].slice(0, -1)
+    })
+  }
+
   return (
     <>
       <div>
@@ -85,6 +92,12 @@ function App() {
             onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
           >
             Add new
+          </button>
+
+          <button
+            onClick={(e) => {popListItem("education")}}
+          >
+            Remove
           </button>
 
           <div>
