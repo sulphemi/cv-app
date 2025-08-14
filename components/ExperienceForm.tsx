@@ -1,4 +1,14 @@
-function ExperienceForm({ index, updateListItem }) {
+interface ExperienceFormProps {
+  index: number
+  updateListItem: (
+    list: "experience",
+    index: number,
+    key:string,
+    value: string,
+  ) => void
+}
+
+function ExperienceForm({ index, updateListItem }: ExperienceFormProps) {
   return (
     <div>
       <p>Company Name</p>

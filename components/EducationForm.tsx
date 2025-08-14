@@ -1,8 +1,14 @@
-function EducationForm({ index, updateListItem }) {
-  const updateEducation = () => {
+interface EducationFormProps {
+  index: number
+  updateListItem: (
+    list: "education",
+    index: number,
+    key: string,
+    value: string,
+  ) => void
+}
 
-  }
-
+function EducationForm({ index, updateListItem }: EducationFormProps) {
   return (
     <div>
       <p>School name</p>

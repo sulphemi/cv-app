@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import EducationForm from './components/EducationForm.tsx'
 import ExperienceForm from './components/ExperienceForm.tsx'
 import ResumePage from './components/ResumePage.tsx'
 import './styles/style.css'
+import type { FormDataType } from './types.ts'
+
 
 function App() {
   const [ currentPage, setCurrentPage ] = useState("forms")
 
-  const [ formData, setFormData ] = useState({
+  const [ formData, setFormData ] = useState<FormDataType>({
     "name": "Reimu Harukei",
     "email": "something@example.com",
     "phone": "(111) 222-333",
@@ -32,7 +32,7 @@ function App() {
     ],
   })
 
-  const updateData = (key, value) => {
+  const updateData = (key: string, value: string) => {
     setFormData({
       ...formData,
       [key]: value,
@@ -41,7 +41,7 @@ function App() {
     console.log(formData)
   }
 
-  const appendData = (key, value) => {
+  const appendData = (key: "education" | "experience", value: any) => {
     setFormData({
       ...formData,
       [key]: [...formData[key], value],
@@ -50,7 +50,12 @@ function App() {
     console.log(formData)
   }
 
-  const updateListItem = (list, index, key, value) => {
+  const updateListItem = (
+    list: "education" | "experience",
+    index: number,
+    key: any,
+    value: string,
+  ) => {
     const newList = [ ...formData[list] ]
     newList[index] = {
       ...newList[index],
@@ -64,7 +69,7 @@ function App() {
     console.log(formData)
   }
 
-  const popListItem = (list) => {
+  const popListItem = (list: "education" | "experience") => {
     setFormData({
       ...formData,
       [list]: formData[list].slice(0, -1)
@@ -104,17 +109,17 @@ function App() {
 
             <div id="education-section" className="form">
               <h2>Education</h2>
-              { formData["education"].map((item, index) => {
+              { formData["education"].map((_, index) => {
                 return <EducationForm index={index} updateListItem={updateListItem} key={index} />
               }) }
               <button
-                onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
+                onClick={() => {appendData("education", { "school": "", "title": "", "startYear": "", "endYear": "" })}}
               >
                 Add new
               </button>
 
               <button
-                onClick={(e) => {popListItem("education")}}
+                onClick={() => {popListItem("education")}}
               >
                 Remove
               </button>
@@ -123,19 +128,19 @@ function App() {
             <div id="experience-section" className="form">
               <h2>Experience</h2>
               {
-                formData["experience"].map((item, index) => {
+                formData["experience"].map((_, index) => {
                   return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
                 })
               }
 
               <button
-                onClick={(e) => {appendData("experience", { "company": "", "position": "" })}}
+                onClick={() => {appendData("experience", { "company": "", "position": "", "responsibilities": "", "startYear": "", "endYear": "" })}}
               >
                 Add new
               </button>
 
               <button
-                onClick={(e) => {popListItem("experience")}}
+                onClick={() => {popListItem("experience")}}
               >
                 Remove
               </button>

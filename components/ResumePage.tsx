@@ -1,4 +1,10 @@
-function ResumePage({ formData }) {
+import type { FormDataType } from '../types.ts'
+
+interface ResumePageProps {
+  formData: FormDataType
+}
+
+function ResumePage({ formData }: ResumePageProps) {
   return (
     <div className="resume">
       <div className="resume-content">
@@ -8,7 +14,7 @@ function ResumePage({ formData }) {
         <hr />
         <h2>Education</h2>
         <ul>
-          { formData["education"].map((item, index) => {
+          { formData["education"].map((item: any, index: number) => {
               return (
                 <li key={index}>
                   <p>{item["school"]}</p>
@@ -23,7 +29,7 @@ function ResumePage({ formData }) {
         <hr />
         <h2>Experience</h2>
         <ul>
-          { formData["experience"].map((item, index) => {
+          { formData["experience"].map((item: any, index: number) => {
             return (
               <li key={index}>
                 <p className="r-company">{item["company"]}, {item["position"]}</p>
