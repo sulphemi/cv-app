@@ -15,13 +15,15 @@ function ExperienceForm({ index, updateListItem }) {
       />
 
       <p>Duration</p>
-      <input type="number"
+      <input type="text" className="date-input"
         onChange={(e) => updateListItem("experience", index, "startYear", e.target.value)}
       />
       <span> to </span>
-      <input type="number"
+      <input type="text" className="date-input" 
         onChange={(e) => updateListItem("experience", index, "endYear", e.target.value)}
       />
+
+      <hr className="eduexp-separator" />
     </div>
   )
 }

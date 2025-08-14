@@ -36,16 +36,29 @@ body {
     border-color: #606c38;
 }
 
+.form input.date-input {
+    min-width: 10%;
+    max-width: 20%;
+}
+
 .form button {
     padding: .5rem;
     border-style: none;
     border-radius: .25rem;
     color: #fefefe;
     background-color: #606c38;
+    margin-top: 2rem;
+    margin-right: 1rem;
 }
 
 .form button:hover {
     background-color: #606c38;
+}
+
+.eduexp-separator {
+    border-color: #dfdfdf;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .resume {
