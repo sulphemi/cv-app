@@ -21,7 +21,7 @@ function EducationForm({ index, updateListItem }) {
       />
       <span> to </span>
       <input type="number"
-        onChange={(e) => updateListItem("education", index, "startYear", e.target.value)}
+        onChange={(e) => updateListItem("education", index, "endYear", e.target.value)}
       />
 
       <button>Remove</button>
