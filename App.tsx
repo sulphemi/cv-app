@@ -10,12 +10,23 @@ function App() {
     "name": "Reimu Harukei",
     "email": "something@example.com",
     "phone": "(111) 222-333",
+    "education": [],
+    "experience": [],
   })
 
   const updateData = (key, value) => {
     setFormData({
       ...formData,
-      [ key ]: value,
+      [key]: value,
+    })
+
+    console.log(formData)
+  }
+
+  const appendData = (key, value) => {
+    setFormData({
+      ...formData,
+      [key]: [...formData[key], value],
     })
 
     console.log(formData)
@@ -30,13 +41,16 @@ function App() {
           <input type="text" id="nameInput"
             onChange={(e) => updateData("name", e.target.value)}
           />
-          <p>Your name is {formData["name"]}</p>
 
           <p>Email:</p>
-          <input type="text" id="emailInput"/>
+          <input type="text" id="emailInput"
+            onChange={(e) => updateData("email", e.target.value)}
+          />
 
           <p>Phone Number:</p>
-          <input type="text" id="phoneInput"/>
+          <input type="text" id="phoneInput"
+            onChange={(e) => updateData("phone", e.target.value)}
+          />
           
           <div>
             <button>Next</button>
