@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import EducationForm from './components/EducationForm.tsx'
 import ExperienceForm from './components/ExperienceForm.tsx'
 import ResumePage from './components/ResumePage.tsx'
+import './styles/style.css'
 
 function App() {
   const [ formData, setFormData ] = useState({
@@ -67,7 +68,7 @@ function App() {
   return (
     <>
       <div>
-        <div>
+        <div id="personal-section" className="form">
           <h2>Personal Info</h2>
           <p>Name:</p>
           <input type="text" id="nameInput"
@@ -89,7 +90,7 @@ function App() {
           </div>
         </div>
 
-        <div id="education-section">
+        <div id="education-section" className="form">
           <h2>Education</h2>
           { formData["education"].map((item, index) => {
             return <EducationForm index={index} updateListItem={updateListItem} key={index} />
@@ -112,7 +113,7 @@ function App() {
           </div>
         </div>
 
-        <div>
+        <div id="experience-section" className="form">
           <h2>Experience</h2>
           {
             formData["experience"].map((item, index) => {

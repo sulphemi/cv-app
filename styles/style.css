@@ -1,0 +1,10 @@
+body {
+    font-family: Figtree, Outfit, Helvetica, Arial, sans-serif;
+}
+
+.form {
+    margin: 5rem;
+    padding: 10rem;
+    background-color: #efefef;
+    border-radius: 1rem;
+}
