@@ -16,9 +16,13 @@ function EducationForm({ index, updateListItem }) {
       />
 
       <p>Duration</p>
-      <input type="number" />
+      <input type="number"
+        onChange={(e) => updateListItem("education", index, "startYear", e.target.value)}
+      />
       <span> to </span>
-      <input type="number" />
+      <input type="number"
+        onChange={(e) => updateListItem("education", index, "startYear", e.target.value)}
+      />
 
       <button>Remove</button>
     </div>

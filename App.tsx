@@ -16,7 +16,13 @@ function App() {
         "title": "Shrine Maiden",
       },
     ],
-    "experience": [],
+    "experience": [
+      {
+        "company": "Self-employed",
+        "position": "CEO (Chief Executive Officer)",
+        "responsibilities": "Do work",
+      }
+    ],
   })
 
   const updateData = (key, value) => {
@@ -109,6 +115,11 @@ function App() {
         <div>
           <h2>Experience</h2>
           <ExperienceForm />
+          {
+            formData["experience"].map((item, index) => {
+              return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
+            })
+          }
 
           <button>Add new</button>
 
