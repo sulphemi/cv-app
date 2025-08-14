@@ -29,23 +29,23 @@ body {
     padding: .5rem;
     border-radius: .25rem;
     border-style: solid;
+    min-width: 60%;
 }
 
 .form input:hover {
-    border-color: black;
+    border-color: #606c38;
 }
 
 .form button {
     padding: .5rem;
     border-style: none;
     border-radius: .25rem;
-    margin: 1rem;
     color: #fefefe;
-    background-color: #434343;
+    background-color: #606c38;
 }
 
 .form button:hover {
-    background-color: #535353;
+    background-color: #606c38;
 }
 
 .resume {
@@ -56,7 +56,7 @@ body {
     width: 8.5in;
     height: 11in;
     background-color: white;
-    filter: drop-shadow(8px 8px);
+    filter: drop-shadow(8px 8px 0px #264653);
 }
 
 .resume-content {
