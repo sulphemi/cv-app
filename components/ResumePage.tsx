@@ -18,7 +18,18 @@ function ResumePage({ formData }) {
         }
       </ul>
       <hr />
-      <h2></h2>
+      <h2>Experience</h2>
+      <ul>
+        { formData["experience"].map((item, index) => {
+          return (
+            <li key={index}>
+              <p>{item["company"]}</p>
+              <p>{item["position"]}</p>
+              <p>{item["responsibilities"]}</p>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }
