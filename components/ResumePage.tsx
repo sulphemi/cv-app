@@ -14,6 +14,7 @@ function ResumePage({ formData }) {
                   <p>{item["school"]}</p>
                   <p>{item["title"]}</p>
                   <p>{item["startYear"]} - {item["endYear"]}</p>
+                  <br />
                 </li>
               )
             })
@@ -25,10 +26,10 @@ function ResumePage({ formData }) {
           { formData["experience"].map((item, index) => {
             return (
               <li key={index}>
-                <p>{item["company"]}</p>
-                <p>{item["position"]}</p>
-                <p>{item["responsibilities"]}</p>
-                <p>{item["startYear"]} - {item["endYear"]}</p>
+                <p className="r-company">{item["company"]}, {item["position"]}</p>
+                <p className="r-resp">{item["responsibilities"]}</p>
+                <p className="r-time">{item["startYear"]} - {item["endYear"]}</p>
+                <br />
               </li>
             )
           })}

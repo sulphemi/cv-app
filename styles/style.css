@@ -92,6 +92,37 @@ body {
     padding: 1rem;
 }
 
+.resume-content * {
+    padding: 0;
+    margin: 0;
+}
+
+.resume-content hr {
+    margin: 1rem;
+}
+
+.resume-content > p {
+    margin-left: 2rem;
+}
+
+.resume-content h2 {
+    margin: 0.5rem;
+}
+
+.resume-content ul {
+    list-style-type: none;
+    margin-left: 0.5rem;
+}
+
+.resume-content ul li {
+    margin-left: 0.5rem;
+}
+
+.r-time {
+    margin-left: 1rem;
+}
+
+
 @media (max-width: 1694px) {
     #resume-preview {
         display: none;

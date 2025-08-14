@@ -17,6 +17,8 @@ function App() {
       {
         "school": "Gensokyo",
         "title": "Shrine Maiden",
+        "startYear": "A long time ago",
+        "endYear": "Present",
       },
     ],
     "experience": [
@@ -24,6 +26,8 @@ function App() {
         "company": "Self-employed",
         "position": "CEO (Chief Executive Officer)",
         "responsibilities": "Do work",
+        "startYear": "January 2024",
+        "endYear": "February 2024",
       }
     ],
   })
