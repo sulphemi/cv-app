@@ -54,7 +54,7 @@ function App() {
   return (
     <>
       <div>
-        <form>
+        <div>
           <h2>Personal Info</h2>
           <p>Name:</p>
           <input type="text" id="nameInput"
@@ -74,9 +74,9 @@ function App() {
           <div>
             <button>Next</button>
           </div>
-        </form>
+        </div>
 
-        <form id="education-section">
+        <div id="education-section">
           <h2>Education</h2>
           { formData["education"].map((item, index) => {
             return <EducationForm index={index} updateListItem={updateListItem} key={index} />
@@ -91,9 +91,9 @@ function App() {
             <button>Back</button>
             <button>Next</button>
           </div>
-        </form>
+        </div>
 
-        <form>
+        <div>
           <h2>Experience</h2>
           <ExperienceForm />
 
@@ -103,7 +103,7 @@ function App() {
             <button>Back</button>
             <button>Submit</button>
           </div>
-        </form>
+        </div>
 
         <ResumePage id="printable-resume" formData={formData}/>
       </div>
