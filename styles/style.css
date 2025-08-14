@@ -10,6 +10,7 @@ body {
 .form {
     margin: 5rem;
     padding: 5rem;
+    padding-top: 4rem;
     background-color: #efefef;
     border-radius: 1rem;
     max-width: 40rem;
@@ -30,6 +31,7 @@ body {
     border-radius: .25rem;
     border-style: solid;
     min-width: 60%;
+    transition: all 0.3s ease;
 }
 
 .form input:hover {
@@ -49,10 +51,11 @@ body {
     background-color: #606c38;
     margin-top: 2rem;
     margin-right: 1rem;
+    transition: all 0.3s ease;
 }
 
 .form button:hover {
-    background-color: #606c38;
+    background-color: #a3b18a;
 }
 
 .eduexp-separator {
@@ -69,9 +72,24 @@ body {
     width: 8.5in;
     height: 11in;
     background-color: white;
-    filter: drop-shadow(8px 8px 0px #264653);
+    filter: drop-shadow(8px 8px 0px #606c38);
 }
 
 .resume-content {
     padding: 1rem;
+}
+
+@media (max-width: 1694px) {
+    .resume {
+        display: none;
+    }
+
+    #container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form {
+        margin: 5rem 0 5rem 0;
+    }
 }
