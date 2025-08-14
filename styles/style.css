@@ -1,16 +1,23 @@
 body {
     font-family: Figtree, Outfit, Helvetica, Arial, sans-serif;
+    background: #4518e2;
+}
+
+#container {
+    display: flex;
 }
 
 .form {
     margin: 5rem;
-    padding: 10rem;
+    padding: 5rem;
     background-color: #efefef;
     border-radius: 1rem;
+    max-width: 40rem;
 }
 
 .form h2 {
     color: #000000;
+    font-size: 2rem;
 }
 
 .form p {
@@ -24,8 +31,8 @@ body {
     border-style: solid;
 }
 
-.form input {
-    border-color: #
+.form input:hover {
+    border-color: black;
 }
 
 .form button {
@@ -39,4 +46,19 @@ body {
 
 .form button:hover {
     background-color: #535353;
+}
+
+.resume {
+    position: fixed;
+    left: 50%;
+    top: 10%;
+    bottom: 10%;
+    width: 8.5in;
+    height: 11in;
+    background-color: white;
+    filter: drop-shadow(8px 8px);
+}
+
+.resume-content {
+    padding: 1rem;
 }

@@ -67,79 +67,81 @@ function App() {
 
   return (
     <>
-      <div>
-        <div id="personal-section" className="form">
-          <h2>Personal Info</h2>
-          <p>Name:</p>
-          <input type="text" id="nameInput"
-            onChange={(e) => updateData("name", e.target.value)}
-          />
+      <div id="container">
+        <div id="forms">
+          <div id="personal-section" className="form">
+            <h2>Personal Info</h2>
+            <p>Name:</p>
+            <input type="text" id="nameInput"
+              onChange={(e) => updateData("name", e.target.value)}
+            />
 
-          <p>Email:</p>
-          <input type="text" id="emailInput"
-            onChange={(e) => updateData("email", e.target.value)}
-          />
+            <p>Email:</p>
+            <input type="text" id="emailInput"
+              onChange={(e) => updateData("email", e.target.value)}
+            />
 
-          <p>Phone Number:</p>
-          <input type="text" id="phoneInput"
-            onChange={(e) => updateData("phone", e.target.value)}
-          />
-          
-          <div>
-            <button>Next</button>
+            <p>Phone Number:</p>
+            <input type="text" id="phoneInput"
+              onChange={(e) => updateData("phone", e.target.value)}
+            />
+            
+            <div className="">
+              <button>Next</button>
+            </div>
+          </div>
+
+          <div id="education-section" className="form">
+            <h2>Education</h2>
+            { formData["education"].map((item, index) => {
+              return <EducationForm index={index} updateListItem={updateListItem} key={index} />
+            }) }
+            <button
+              onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
+            >
+              Add new
+            </button>
+
+            <button
+              onClick={(e) => {popListItem("education")}}
+            >
+              Remove
+            </button>
+
+            <div>
+              <button>Back</button>
+              <button>Next</button>
+            </div>
+          </div>
+
+          <div id="experience-section" className="form">
+            <h2>Experience</h2>
+            {
+              formData["experience"].map((item, index) => {
+                return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
+              })
+            }
+
+            <button
+              onClick={(e) => {appendData("experience", { "company": "", "position": "" })}}
+            >
+              Add new
+            </button>
+
+            <button
+              onClick={(e) => {popListItem("experience")}}
+            >
+              Remove
+            </button>
+
+            <div>
+              <button>Back</button>
+              <button>Submit</button>
+            </div>
           </div>
         </div>
 
-        <div id="education-section" className="form">
-          <h2>Education</h2>
-          { formData["education"].map((item, index) => {
-            return <EducationForm index={index} updateListItem={updateListItem} key={index} />
-          }) }
-          <button
-            onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
-          >
-            Add new
-          </button>
-
-          <button
-            onClick={(e) => {popListItem("education")}}
-          >
-            Remove
-          </button>
-
-          <div>
-            <button>Back</button>
-            <button>Next</button>
-          </div>
-        </div>
-
-        <div id="experience-section" className="form">
-          <h2>Experience</h2>
-          {
-            formData["experience"].map((item, index) => {
-              return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
-            })
-          }
-
-          <button
-            onClick={(e) => {appendData("experience", { "company": "", "position": "" })}}
-          >
-            Add new
-          </button>
-
-          <button
-            onClick={(e) => {popListItem("experience")}}
-          >
-            Remove
-          </button>
-
-          <div>
-            <button>Back</button>
-            <button>Submit</button>
-          </div>
-        </div>
-
-        <ResumePage id="printable-resume" formData={formData}/>
+        <ResumePage id="printable-resume" formData={formData} />
       </div>
     </>
   )
