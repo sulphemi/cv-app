@@ -114,14 +114,23 @@ function App() {
 
         <div>
           <h2>Experience</h2>
-          <ExperienceForm />
           {
             formData["experience"].map((item, index) => {
               return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
             })
           }
 
-          <button>Add new</button>
+          <button
+            onClick={(e) => {appendData("experience", { "company": "", "position": "" })}}
+          >
+            Add new
+          </button>
+
+          <button
+            onClick={(e) => {popListItem("experience")}}
+          >
+            Remove
+          </button>
 
           <div>
             <button>Back</button>
