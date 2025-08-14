@@ -10,7 +10,12 @@ function App() {
     "name": "Reimu Harukei",
     "email": "something@example.com",
     "phone": "(111) 222-333",
-    "education": [],
+    "education": [
+      {
+        "school": "Gensokyo",
+        "title": "Shrine Maiden",
+      },
+    ],
     "experience": [],
   })
 
@@ -42,6 +47,8 @@ function App() {
       ...formData,
       [list]: newList,
     })
+
+    console.log(formData)
   }
 
   return (
@@ -71,8 +78,14 @@ function App() {
 
         <form id="education-section">
           <h2>Education</h2>
-          <EducationForm index={0} updateListItem={updateListItem} />
-          <button>Add new</button>
+          { formData["education"].map((item, index) => {
+            return <EducationForm index={index} updateListItem={updateListItem} key={index} />
+          }) }
+          <button
+            onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
+          >
+            Add new
+          </button>
 
           <div>
             <button>Back</button>

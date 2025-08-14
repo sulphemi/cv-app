@@ -7,9 +7,13 @@ function ResumePage({ formData }) {
       <hr />
       <h2>Education</h2>
       <ul>
-        <li>thingy thing</li>
-        { formData["education"].map((item) => {
-            return <li key="idk"></li>
+        { formData["education"].map((item, index) => {
+            return (
+              <li key={index}>
+                <p>{item["school"]}</p>
+                <p>{item["title"]}</p>
+              </li>
+            )
           })
         }
       </ul>
