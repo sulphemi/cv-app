@@ -32,6 +32,18 @@ function App() {
     console.log(formData)
   }
 
+  const updateListItem = (list, index, key, value) => {
+    const newList = [ ...formData[list] ]
+    newList[index] = {
+      ...newList[index],
+      [key]: value,
+    }
+    setFormData({
+      ...formData,
+      [list]: newList,
+    })
+  }
+
   return (
     <>
       <div>
@@ -59,7 +71,7 @@ function App() {
 
         <form id="education-section">
           <h2>Education</h2>
-          <EducationForm />
+          <EducationForm index={0} updateListItem={updateListItem} />
           <button>Add new</button>
 
           <div>
