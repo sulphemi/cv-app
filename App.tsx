@@ -85,10 +85,6 @@ function App() {
             <input type="text" id="phoneInput"
               onChange={(e) => updateData("phone", e.target.value)}
             />
-            
-            <div className="">
-              <button>Next</button>
-            </div>
           </div>
 
           <div id="education-section" className="form">
@@ -107,11 +103,6 @@ function App() {
             >
               Remove
             </button>
-
-            <div>
-              <button>Back</button>
-              <button>Next</button>
-            </div>
           </div>
 
           <div id="experience-section" className="form">
@@ -133,11 +124,6 @@ function App() {
             >
               Remove
             </button>
-
-            <div>
-              <button>Back</button>
-              <button>Submit</button>
-            </div>
           </div>
         </div>
 
