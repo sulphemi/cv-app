@@ -7,6 +7,8 @@ import ResumePage from './components/ResumePage.tsx'
 import './styles/style.css'
 
 function App() {
+  const [ currentPage, setCurrentPage ] = useState("forms")
+
   const [ formData, setFormData ] = useState({
     "name": "Reimu Harukei",
     "email": "something@example.com",
@@ -65,69 +67,117 @@ function App() {
     })
   }
 
+  const displayPrint = () => {
+    setCurrentPage("print")
+  }
+
+  const displayForms = () => {
+    setCurrentPage("forms")
+  }
+
   return (
     <>
       <div id="container">
-        <div id="forms">
-          <div id="personal-section" className="form">
-            <h2>Personal Info</h2>
-            <p>Name:</p>
-            <input type="text" id="nameInput"
-              onChange={(e) => updateData("name", e.target.value)}
-            />
+        { currentPage == "forms" &&
+          <div id="forms">
+            <div id="personal-section" className="form">
+              <h2>Personal Info</h2>
+              <p>Name:</p>
+              <input type="text" id="nameInput"
+                onChange={(e) => updateData("name", e.target.value)}
+              />
 
-            <p>Email:</p>
-            <input type="text" id="emailInput"
-              onChange={(e) => updateData("email", e.target.value)}
-            />
+              <p>Email:</p>
+              <input type="text" id="emailInput"
+                onChange={(e) => updateData("email", e.target.value)}
+              />
 
-            <p>Phone Number:</p>
-            <input type="text" id="phoneInput"
-              onChange={(e) => updateData("phone", e.target.value)}
-            />
+              <p>Phone Number:</p>
+              <input type="text" id="phoneInput"
+                onChange={(e) => updateData("phone", e.target.value)}
+              />
+            </div>
+
+            <div id="education-section" className="form">
+              <h2>Education</h2>
+              { formData["education"].map((item, index) => {
+                return <EducationForm index={index} updateListItem={updateListItem} key={index} />
+              }) }
+              <button
+                onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
+              >
+                Add new
+              </button>
+
+              <button
+                onClick={(e) => {popListItem("education")}}
+              >
+                Remove
+              </button>
+            </div>
+
+            <div id="experience-section" className="form">
+              <h2>Experience</h2>
+              {
+                formData["experience"].map((item, index) => {
+                  return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
+                })
+              }
+
+              <button
+                onClick={(e) => {appendData("experience", { "company": "", "position": "" })}}
+              >
+                Add new
+              </button>
+
+              <button
+                onClick={(e) => {popListItem("experience")}}
+              >
+                Remove
+              </button>
+            </div>
+
+            <div id="submit-section" className="form">
+              <h2>Save changes</h2>
+              <p>Press to submit</p>
+              <button
+                onClick={displayPrint}
+              >
+                Submit
+              </button>
+            </div>
           </div>
+        }
 
-          <div id="education-section" className="form">
-            <h2>Education</h2>
-            { formData["education"].map((item, index) => {
-              return <EducationForm index={index} updateListItem={updateListItem} key={index} />
-            }) }
-            <button
-              onClick={(e) => {appendData("education", { "school": "", "title": "" })}}
-            >
-              Add new
-            </button>
-
-            <button
-              onClick={(e) => {popListItem("education")}}
-            >
-              Remove
-            </button>
+        { currentPage == "forms" &&
+           <div id="resume-preview">
+            <ResumePage formData={formData} />
           </div>
+        }
 
-          <div id="experience-section" className="form">
-            <h2>Experience</h2>
-            {
-              formData["experience"].map((item, index) => {
-                return <ExperienceForm index={index} updateListItem={updateListItem} key={index} />
-              })
-            }
-
-            <button
-              onClick={(e) => {appendData("experience", { "company": "", "position": "" })}}
-            >
-              Add new
-            </button>
-
-            <button
-              onClick={(e) => {popListItem("experience")}}
-            >
-              Remove
-            </button>
+        { currentPage == "print" &&
+          <div id="resume-print-page">
+            <div>
+              <div className="form hide-on-print">
+                <h2>Preview & Print</h2>
+                <p>Press Edit to go back and make any adjustments</p>
+                <button
+                  onClick={displayForms}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={print}
+                >
+                  Print
+                </button>
+              </div>
+              <div id="resume-printable">
+                <ResumePage formData={formData} />
+              </div>
+            </div>
           </div>
-        </div>
-
-        <ResumePage id="printable-resume" formData={formData} />
+        }
       </div>
     </>
   )
